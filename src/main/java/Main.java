@@ -7,9 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 public class Main {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win32\\chromedriver.exe");
@@ -32,21 +29,15 @@ public class Main {
 
         driver.findElement(By.xpath("/html/body/form/input[3]")).click();
 
-        try {
-            URL loginUrl = new URL("https://www.stealmylogin.com/demo.html");
-            URL exampleUrl = new URL("https://example.com/");
-            if(loginUrl.equals(exampleUrl)){
+        String exampleUrl = driver.getCurrentUrl();
+        String urlToCompare = "https://example.com/";
+
+
+            if(urlToCompare.equals(exampleUrl)){
                 System.out.println("Nice");
             } else {
                 System.out.println("Not nice");
             }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
-
-
-
 
     }
 }
